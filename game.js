@@ -61,4 +61,30 @@ function drawGame() {
 	let snakeX = snake[0].x;
 	let snakeY = snake[0].y;
 
+	if(snakeX == food.x && snakeY == food.y) {
+		score++;
+		food = {
+			x: Math.floor((Math.random() * 17 + 1)) * box,
+			y: Math.floor((Math.random() * 15 + 3)) * box,
+		};
+	} else
+		snake.pop();
+
+	if(snakeX < box || snakeX > box * 17
+		|| snakeY < 3 * box || snakeY > box * 17)
+		clearInterval(game);
+
+	if(dir == "left") snakeX -= box;
+	if(dir == "right") snakeX += box;
+	if(dir == "up") snakeY -= box;
+	if(dir == "down") snakeY += box;
+
+	let newHead = {
+		x: snakeX,
+		y: snakeY
+	};
+
+	eatTail(newHead, snake);
+
+	snake.unshift(newHead);
 }
