@@ -1,4 +1,4 @@
-const canvas = document.getElementById("main");
+const canvas = document.getElementById("game");
 const context = canvas.getContext("2d");
 
 const background = new Image();
@@ -88,3 +88,4 @@ function drawGame() {
 
 	snake.unshift(newHead);
 }
+let game = setInterval(drawGame, 100);
