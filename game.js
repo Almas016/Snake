@@ -36,3 +36,10 @@ function direction(event) {
 	else if(event.keyCode == 40 && dir != "up")
 		dir = "down";
 }
+
+function eatTail(head, arr) {
+	for(let i = 0; i < arr.length; i++) {
+		if(head.x == arr[i].x && head.y == arr[i].y)
+			clearInterval(game);
+	}
+}
