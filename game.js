@@ -43,3 +43,22 @@ function eatTail(head, arr) {
 			clearInterval(game);
 	}
 }
+
+function drawGame() {
+	context.drawImage(background, 0, 0);
+
+	context.drawImage(foodImg, food.x, food.y);
+
+	for(let i = 0; i < snake.length; i++) {
+		context.fillStyle = i == 0 ? "green" : "red";
+		context.fillRect(snake[i].x, snake[i].y, box, box);
+	}
+
+	context.fillStyle = "white";
+	context.font = "50px Arial";
+	context.fillText(score, box * 2.5, box * 1.7);
+
+	let snakeX = snake[0].x;
+	let snakeY = snake[0].y;
+
+}
